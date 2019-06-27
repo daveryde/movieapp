@@ -1,0 +1,99 @@
+@import 'mixins';
+
+.flex {
+  @include flex;
+
+  &-container {
+    @include flex;
+    @include m-p;
+
+    &-fluid {
+      @include flex;
+      @include m-p;
+      @include fluid;
+    }
+
+    &.justify {
+      &-center {
+        @include flex;
+        @include m-p;
+        @include a-center;
+        justify-content: center;
+      }
+      &-spaced {
+        @include flex;
+        @include m-p;
+        @include a-center;
+        justify-content: space-evenly;
+      }
+      &-between {
+        @include flex;
+        @include m-p;
+        @include a-center;
+        justify-content: space-between;
+      }
+    }
+
+    &.direction {
+      &-row {
+        flex-direction: row;
+
+        &-nowrap {
+          flex-flow: row nowrap;
+        }
+
+        &-wrap {
+          flex-flow: row wrap;
+        }
+      }
+
+      &-column {
+        flex-direction: column;
+
+        &-nowrap {
+          flex-flow: row nowrap;
+        }
+
+        &-wrap {
+          flex-flow: row wrap;
+        }
+      }
+    }
+  }
+
+  &.landing {
+    width: 100vw;
+    height: auto;
+  }
+}
+
+.container {
+  @include m-p;
+
+  &-fluid {
+    @include m-p;
+    @include fluid;
+  }
+}
+
+// Backgrounds
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+  }
+  &-light {
+    @include set-background($light-color);
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-white {
+    @include set-background(#ffffff);
+  }
+}

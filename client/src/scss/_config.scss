@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+$primary-color: #41b3a3;
+$light-color: #85dcba;
+$dark-color: #c38d9e;
+$danger-color: #e27d60;
+$success-color: #e8a87c;
+$max-width: 98vw;
+
+// Function to set text color based on background
+@function set-text-color($color) {
+  @if (lightness($color) > 60) {
+    @return #333;
+  } @else {
+    @return #fff;
+  }
+}
+
+// Mixin to set background and text color
+@mixin set-background($color) {
+  background: $color;
+  color: set-text-color($color);
+}

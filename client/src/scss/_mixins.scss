@@ -1,0 +1,30 @@
+@mixin flex {
+  display: flex;
+}
+
+@mixin row-wrap {
+  flex-flow: row wrap;
+}
+
+@mixin col-wrap {
+  flex-flow: column wrap;
+}
+
+@mixin a-center {
+  align-items: center;
+}
+
+@mixin m-p {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+@mixin fluid {
+  width: 100vw;
+  height: 100vh;
+}
+
+@mixin gutter {
+  width: 95vw;
+  height: 100vh;
+}
