@@ -1,3 +1,8 @@
+.container {
+  margin-top: -0.9rem;
+  margin-bottom: -0.9rem;
+}
+
 // Navigation Bar
 
 .navbar {
@@ -7,8 +12,39 @@
   box-shadow: 2px 2px 5px #000;
 
   .navbar-logo {
-    width: 15vw;
+    display: flex;
+    justify-content: center;
+    width: 45vw;
     height: auto;
+  }
+
+  .navbar-searchbox {
+    display: flex;
+    width: 55vw;
+    height: auto;
+
+    input[type='text'] {
+      width: 35vw;
+      height: 6vh;
+      border-radius: 30px 30px 30px 30px;
+      outline: none;
+      padding: 0.5rem;
+      font-size: 1.2rem;
+    }
+    button {
+      @include set-background($primary-color);
+      margin-left: 0.5rem;
+      border: none;
+      color: white;
+      padding: 10px 12px;
+      font-size: 1.4rem;
+      cursor: pointer;
+
+      &:hover {
+        @include set-background($light-color);
+        border-radius: 50px;
+      }
+    }
   }
 
   h1 {
@@ -17,6 +53,6 @@
   }
 
   .branding {
-    margin-left: 3rem;
+    // margin-left: 3rem;
   }
 }

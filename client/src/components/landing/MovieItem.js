@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 const MovieItem = ({ item, config }) => {
   return (
@@ -18,4 +19,11 @@ MovieItem.propTypes = {
   config: PropTypes.object.isRequired
 };
 
-export default MovieItem;
+const mapStateToProps = state => ({
+  config: state.imgConfig
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(MovieItem);

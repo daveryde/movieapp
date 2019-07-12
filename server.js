@@ -2,6 +2,7 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json({ extended: false }));
 app.use('/search', require('./routes/api/search'));
 app.use('/images', require('./routes/api/images'));
 

@@ -1,3 +1,10 @@
+a {
+  &:visited,
+  &:active {
+    color: set_text_color($primary_color);
+  }
+}
+
 h1 {
   font-size: 2rem;
   margin: 0;

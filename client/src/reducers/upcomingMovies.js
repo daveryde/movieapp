@@ -2,7 +2,8 @@ import { GET_CURRENT, SEARCH_RES, SEARCH_ERROR } from '../actions/types';
 
 const initialState = {
   results: [],
-  error: {}
+  error: {},
+  loading: true
 };
 
 export default function(state = initialState, action) {
@@ -12,12 +13,14 @@ export default function(state = initialState, action) {
     case GET_CURRENT:
       return {
         ...state,
-        results: payload
+        results: payload,
+        loading: false
       };
     case SEARCH_RES:
       return {
         ...state,
-        results: { ...state.result, payload }
+        results: { ...state.result, payload },
+        loading: false
       };
     case SEARCH_ERROR:
       return {

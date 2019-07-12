@@ -8,22 +8,13 @@ const Carousel = ({ movies: { results }, config }) => {
 
   useEffect(() => {
     if (results !== undefined) {
-      let temp = [];
-      results.map(item => {
-        temp.push(item.backdrop_path);
+      const loadedImages = results.map(item => {
+        return item.backdrop_path;
       });
 
-      setImagePath(temp);
+      setImagePath(loadedImages);
     }
-  }, []);
-
-  const previousSlide = () => {
-    const lastIndex = images.length - 1;
-    const shouldResetIndex = currentImageIndex === 0;
-    const index = shouldResetIndex ? lastIndex : currentImageIndex - 1;
-
-    setCurrentImageIndex(index);
-  };
+  }, [results]);
 
   const nextSlide = () => {
     const lastIndex = images.length - 1;
@@ -33,19 +24,24 @@ const Carousel = ({ movies: { results }, config }) => {
     setCurrentImageIndex(index);
   };
 
+  const autoSlide = option => {
+    if (option) {
+      setTimeout(() => nextSlide(), 4000);
+    }
+  };
+
   return (
     <ImageSlider
       url={config.url}
       size={config.backdrop_sizes}
       imageUrl={images[currentImageIndex]}
-      prev={previousSlide}
-      next={nextSlide}
+      autoSlide={autoSlide}
     />
   );
 };
 
 Carousel.propTypes = {
-  movie: PropTypes.object.isRequired,
+  movies: PropTypes.object.isRequired,
   config: PropTypes.object.isRequired
 };
 

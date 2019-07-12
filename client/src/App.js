@@ -1,7 +1,8 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Landing from './components/Landing';
-import Main from './components/Main';
+import React, { Fragment } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Navbar from './components/layout/Navbar';
+import Landing from './components/landing/Landing';
+import SearchView from './components/SearchView';
 import { Provider } from 'react-redux';
 import store from './store';
 import './App.css';
@@ -9,9 +10,15 @@ import './App.css';
 function App() {
   return (
     <Provider store={store}>
-      <Navbar />
-      <Landing />
-      <Main />
+      <Router>
+        <Fragment>
+          <Navbar />
+          <Switch>
+            <Route exact path='/' component={Landing} />
+            <Route exact path='/searchView' component={SearchView} />
+          </Switch>
+        </Fragment>
+      </Router>
     </Provider>
   );
 }
