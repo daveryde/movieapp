@@ -1,42 +1,48 @@
 import React, { Fragment, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { getCurrent } from '../../actions/upcomingMovies';
 import { getConfig } from '../../actions/imgConfig';
-import Carousel from '../imageSlider/Carousel';
-import Main from './Main';
+import { getTrending } from '../../actions/trendingMedia';
 
-const Landing = ({ config, movies }) => {
+import Showcase from '../sections/Showcase';
+import Main from '../sections/Main';
+
+const Landing = ({ getConfig, getCurrent, getTrending, config, upcoming }) => {
   useEffect(() => {
-    getCurrent();
     getConfig();
-  }, []);
+    getCurrent();
+    getTrending();
+  }, [getConfig, getCurrent, getTrending]);
 
   return (
     <Fragment>
       <div className='flex-container landing justify-center'>
-        <Carousel movies={movies} key={movies.results.id} config={config} />
+        <Showcase config={config} upcoming={upcoming} />
       </div>
-      <div>
+      <section className='flex-container direction-row-wrap'>
         <Main />
-      </div>
+      </section>
     </Fragment>
   );
 };
 
 Landing.propTypes = {
-  getCurrent: PropTypes.func.isRequired,
   getConfig: PropTypes.func.isRequired,
-  movies: PropTypes.object.isRequired,
-  config: PropTypes.object.isRequired
+  getCurrent: PropTypes.func.isRequired,
+  getTrending: PropTypes.func.isRequired,
+  config: PropTypes.object.isRequired,
+  upcoming: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  movies: state.postUpcoming,
-  config: state.imgConfig
+  config: state.imgConfig,
+  upcoming: state.upcomingMovies,
+  trending: state.trendingMovies
 });
 
 export default connect(
   mapStateToProps,
-  { getConfig, getCurrent }
+  { getConfig, getCurrent, getTrending }
 )(Landing);

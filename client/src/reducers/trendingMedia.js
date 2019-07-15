@@ -1,7 +1,7 @@
 import { GET_TRENDING, SEARCH_ERROR } from '../actions/types';
 
 const initialState = {
-  trendingMovies: [],
+  results: [],
   errors: {}
 };
 
@@ -12,7 +12,7 @@ export default function(state = initialState, action) {
     case GET_TRENDING:
       return {
         ...state,
-        trendingMovies: payload
+        results: payload.results
       };
     case SEARCH_ERROR:
       return {

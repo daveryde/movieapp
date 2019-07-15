@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import MovieItem from './landing/MovieItem';
+import MovieItem from '../layout/MovieItem';
 
 const SearchView = ({ searchResults }) => {
   return (
