@@ -2,19 +2,25 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ImageSlider from './ImageSlider';
 
-const Carousel = ({ movies: { results }, config }) => {
+const Carousel = ({ movies: { results }, config: { url, backdrop_sizes } }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImagePath] = useState([]);
+  const [titles, setImageTitle] = useState([]);
 
   useEffect(() => {
     if (results !== undefined) {
       const loadedImages = results.map(item => {
-        return item.backdrop_path;
+        return `${url}/${backdrop_sizes[3]}/${item.backdrop_path}`;
+      });
+
+      const loadedTitles = results.map(item => {
+        return item.title;
       });
 
       setImagePath(loadedImages);
+      setImageTitle(loadedTitles);
     }
-  }, [results]);
+  }, [results, backdrop_sizes, url]);
 
   const nextSlide = () => {
     const lastIndex = images.length - 1;
@@ -26,15 +32,19 @@ const Carousel = ({ movies: { results }, config }) => {
 
   const autoSlide = option => {
     if (option) {
-      setTimeout(() => nextSlide(), 4000);
+      if (currentImageIndex !== images.length - 1) {
+        setTimeout(() => nextSlide(), 4000);
+      } else {
+        setCurrentImageIndex(0);
+        autoSlide();
+      }
     }
   };
 
   return (
     <ImageSlider
-      url={config.url}
-      size={config.backdrop_sizes}
       imageUrl={images[currentImageIndex]}
+      title={titles[currentImageIndex]}
       autoSlide={autoSlide}
     />
   );

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ImageSlider = ({ url, size, imageUrl, autoSlide }) => {
+const ImageSlider = ({ imageUrl, title, autoSlide }) => {
   if (!imageUrl) {
     return (
       <div>
@@ -11,11 +11,8 @@ const ImageSlider = ({ url, size, imageUrl, autoSlide }) => {
     autoSlide(true);
     return (
       <div>
-        <img
-          src={`${url}/${size[2]}/${imageUrl}`}
-          alt={imageUrl}
-          style={{ backgroundColor: '#000', opacity: '0.5' }}
-        />
+        <img src={imageUrl} alt={imageUrl} />
+        <h1 className='image-slider-title'>{title}</h1>
       </div>
     );
   }

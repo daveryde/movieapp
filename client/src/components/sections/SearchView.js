@@ -6,7 +6,7 @@ import MovieItem from '../layout/MovieItem';
 const SearchView = ({ searchResults }) => {
   return (
     <div>
-      <h1>Search View</h1>
+      <h1 className='image-category-title'>Search View</h1>
       <div className='flex-container direction-row-wrap'>
         {searchResults.results.map(item => (
           <MovieItem item={item} />

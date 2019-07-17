@@ -6,10 +6,18 @@
 // Navigation Bar
 
 .navbar {
-  margin: -0.5rem;
+  position: fixed;
+  width: 92vw;
   border: none;
   border-radius: 50px;
   box-shadow: 2px 2px 5px #000;
+  opacity: 0.5;
+  z-index: 3;
+  transition: all 0.5s ease;
+
+  &:hover {
+    opacity: 1;
+  }
 
   .navbar-logo {
     display: flex;

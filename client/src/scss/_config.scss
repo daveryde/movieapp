@@ -1,23 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background: #022;
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
+$background-color: #022;
 $primary-color: #41b3a3;
 $light-color: #85dcba;
 $dark-color: #c38d9e;
 $danger-color: #e27d60;
 $success-color: #e8a87c;
 $max-width: 98vw;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: $background-color;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 
 // Function to set text color based on background
 @function set-text-color($color) {

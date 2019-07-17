@@ -1,16 +1,22 @@
 @import 'mixins';
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
+  // Utilities
+  .container {
+    max-width: 90vw;
+  }
+
   // Navigation Bar
 
   .navbar {
+    width: 88vw;
+
     .navbar-logo {
       width: 15vw;
-      height: auto;
 
       h1.branding {
         margin-left: 2rem;
-        font-size: 1.2rem;
+        font-size: 1.6rem;
         text-shadow: 1px 1px 2px $success-color, 0 0 1em $danger-color,
           0 0 0.2em $dark-color;
       }
@@ -41,15 +47,22 @@
         }
       }
     }
-  }
-  // Landing
 
-  img {
-    width: 93vw;
-    max-height: 95vh;
-    background-position: cover;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+    // Landing
+    .landing {
+      img {
+        width: 100vw;
+        max-height: 100vh;
+        background-position: cover;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        .image-slider-title {
+          background: $background-color;
+          color: white;
+        }
+      }
+    }
   }
 
   // Movie Section
@@ -74,6 +87,17 @@
 }
 
 @media (max-width: 650px) {
+  // Navbar
+  .navbar {
+    width: 90vw;
+  }
+
+  // Landing
+  .image-slider-title {
+    text-align: center;
+    font-size: 1.7rem;
+  }
+
   // Movie Section
 
   .flex-container-images {

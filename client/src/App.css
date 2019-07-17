@@ -231,17 +231,31 @@ p {
   margin: 0;
 }
 
+.image-category-title {
+  margin: 2rem 2rem 0 4rem;
+  color: white;
+}
+
 .container {
   margin-top: -0.8rem;
   margin-bottom: -1.5rem;
 }
 
 .navbar {
-  margin: -0.5rem;
+  position: fixed;
+  width: 92vw;
   border: none;
   border-radius: 50px;
   -webkit-box-shadow: 2px 2px 5px #000;
           box-shadow: 2px 2px 5px #000;
+  opacity: 0.5;
+  z-index: 3;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.navbar:hover {
+  opacity: 1;
 }
 
 .navbar .navbar-logo {
@@ -294,10 +308,33 @@ p {
 }
 
 img {
-  width: 98vw;
+  width: 100vw;
   background-position: cover;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  opacity: 0.5;
+  -webkit-transition: all 0.5 ease;
+  transition: all 0.5 ease;
+}
+
+img:hover {
+  opacity: 1;
+}
+
+.image-slider-title {
+  background: #022;
+  color: white;
+  font-size: 3rem;
+}
+
+.arrow-directional {
+  opacity: 0.5;
+  -webkit-transition: all 0.5 ease;
+  transition: all 0.5 ease;
+}
+
+.arrow-directional:hover {
+  opacity: 1;
 }
 
 .card {
@@ -314,16 +351,28 @@ img {
 
 .card .card-media {
   width: 20vw;
+  opacity: 0.5;
+  -webkit-transition: all 0.5 ease;
+  transition: all 0.5 ease;
 }
 
-@media (max-width: 700px) {
+.card .card-media:hover {
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .container {
+    max-width: 90vw;
+  }
+  .navbar {
+    width: 88vw;
+  }
   .navbar .navbar-logo {
     width: 15vw;
-    height: auto;
   }
   .navbar .navbar-logo h1.branding {
     margin-left: 2rem;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     text-shadow: 1px 1px 2px #e8a87c, 0 0 1em #e27d60, 0 0 0.2em #c38d9e;
   }
   .navbar .navbar-searchbox {
@@ -348,12 +397,16 @@ img {
     -webkit-transform: scale(1.4);
             transform: scale(1.4);
   }
-  img {
-    width: 93vw;
-    max-height: 95vh;
+  .navbar .landing img {
+    width: 100vw;
+    max-height: 100vh;
     background-position: cover;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+  }
+  .navbar .landing img .image-slider-title {
+    background: #022;
+    color: white;
   }
   .flex-container-images {
     display: -webkit-box;
@@ -377,6 +430,13 @@ img {
 }
 
 @media (max-width: 650px) {
+  .navbar {
+    width: 90vw;
+  }
+  .image-slider-title {
+    text-align: center;
+    font-size: 1.7rem;
+  }
   .flex-container-images {
     display: -webkit-box;
     display: -ms-flexbox;

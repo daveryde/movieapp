@@ -23,7 +23,7 @@ const Navbar = ({ multiSearch, history }) => {
 
   return (
     <div className='container'>
-      <div className='flex-container justify-between navbar bg-primary'>
+      <div className='flex-container justify-between bg-primary navbar'>
         <div className='navbar-logo'>
           <Link to='/'>
             <h1 className='branding'>MovieApp</h1>
@@ -35,7 +35,12 @@ const Navbar = ({ multiSearch, history }) => {
               handleSubmit(e);
             }}
           >
-            <input type='text' name='searchTerms' onChange={e => onChange(e)} />
+            <input
+              type='text'
+              name='searchTerms'
+              placeholder='search: lion king'
+              onChange={e => onChange(e)}
+            />
             <button type='submit'>
               <i className='far fa-arrow-alt-circle-right' />
             </button>

@@ -1,5 +1,9 @@
 // Showcase movie Section
 
+.arrow-directional {
+  @include overlay;
+}
+
 .card {
   max-width: 20vw;
   height: auto;
@@ -13,5 +17,6 @@
 
   .card-media {
     width: 20vw;
+    @include overlay;
   }
 }

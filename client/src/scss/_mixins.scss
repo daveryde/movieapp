@@ -28,3 +28,12 @@
   width: 95vw;
   height: 100vh;
 }
+
+@mixin overlay {
+  opacity: 0.5;
+  transition: all 0.5 ease;
+
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -1,7 +1,14 @@
 // Landing
 img {
-  width: 98vw;
+  width: 100vw;
   background-position: cover;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  @include overlay;
+}
+
+.image-slider-title {
+  background: $background-color;
+  color: white;
+  font-size: 3rem;
 }
