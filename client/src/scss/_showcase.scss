@@ -1,9 +1,9 @@
 // Showcase movie Section
 
 .card {
-  width: 20vw;
+  max-width: 20vw;
   height: auto;
-  margin-bottom: 1rem;
+  margin: 1rem;
   border-radius: 10px;
 
   img {
@@ -12,6 +12,6 @@
   }
 
   .card-media {
-    width: auto;
+    width: 20vw;
   }
 }

@@ -36,7 +36,9 @@ const Navbar = ({ multiSearch, history }) => {
             }}
           >
             <input type='text' name='searchTerms' onChange={e => onChange(e)} />
-            <input type='submit' />
+            <button type='submit'>
+              <i className='far fa-arrow-alt-circle-right' />
+            </button>
           </form>
         </div>
       </div>

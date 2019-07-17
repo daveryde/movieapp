@@ -2,12 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-const MovieItem = ({ item, config }) => {
+const MovieItem = ({
+  item: { poster_path, title },
+  config: { url, backdrop_sizes }
+}) => {
   return (
     <div className='card'>
       <img
-        src={`${config.url}/${config.backdrop_sizes[0]}/${item.poster_path}`}
-        alt={item.title}
+        src={`${url}/${backdrop_sizes[0]}/${poster_path}`}
+        alt={title}
         className='card-media'
       />
     </div>

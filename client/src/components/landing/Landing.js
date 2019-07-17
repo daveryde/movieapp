@@ -21,7 +21,7 @@ const Landing = ({ getConfig, getCurrent, getTrending, config, upcoming }) => {
       <div className='flex-container landing justify-center'>
         <Showcase config={config} upcoming={upcoming} />
       </div>
-      <section className='flex-container direction-row-wrap'>
+      <section>
         <Main />
       </section>
     </Fragment>

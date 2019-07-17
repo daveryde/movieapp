@@ -36,25 +36,37 @@
 
     &.direction {
       &-row {
+        @include flex;
+        @include m-p;
         flex-direction: row;
 
         &-nowrap {
+          @include flex;
+          @include m-p;
           flex-flow: row nowrap;
         }
 
         &-wrap {
+          @include flex;
+          @include m-p;
           flex-flow: row wrap;
         }
       }
 
       &-column {
+        @include flex;
+        @include m-p;
         flex-direction: column;
 
         &-nowrap {
+          @include flex;
+          @include m-p;
           flex-flow: row nowrap;
         }
 
         &-wrap {
+          @include flex;
+          @include m-p;
           flex-flow: row wrap;
         }
       }
@@ -62,8 +74,8 @@
   }
 
   &.landing {
-    width: 100vw;
-    height: auto;
+    min-width: 100vw;
+    height: 100vh;
   }
 }
 

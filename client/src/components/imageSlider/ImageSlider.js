@@ -11,7 +11,11 @@ const ImageSlider = ({ url, size, imageUrl, autoSlide }) => {
     autoSlide(true);
     return (
       <div>
-        <img src={`${url}/${size[2]}/${imageUrl}`} alt={imageUrl} />
+        <img
+          src={`${url}/${size[2]}/${imageUrl}`}
+          alt={imageUrl}
+          style={{ backgroundColor: '#000', opacity: '0.5' }}
+        />
       </div>
     );
   }
