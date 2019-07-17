@@ -323,6 +323,7 @@ img:hover {
 
 .image-slider-title {
   background: #022;
+  margin-left: 2rem;
   color: white;
   font-size: 3rem;
 }
