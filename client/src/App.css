@@ -329,6 +329,7 @@ img:hover {
 }
 
 .arrow-directional {
+  width: 3rem;
   opacity: 0.5;
   -webkit-transition: all 0.5 ease;
   transition: all 0.5 ease;
