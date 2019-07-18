@@ -9,11 +9,12 @@ const Navbar = ({ multiSearch, history }) => {
     searchTerms: ''
   });
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
     if (keyword.searchTerms) {
-      multiSearch(keyword.searchTerms, history);
+      await multiSearch(keyword.searchTerms);
+      history.push('/searchView');
     }
   };
 
