@@ -9,7 +9,7 @@ const SearchView = ({ searchResults }) => {
       <h1 className='image-category-title'>Search View</h1>
       <div className='flex-container direction-row-wrap'>
         {searchResults.results.map(item => (
-          <MovieItem item={item} />
+          <MovieItem item={item} key={item.id} />
         ))}
       </div>
     </div>

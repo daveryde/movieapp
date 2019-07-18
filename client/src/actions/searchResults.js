@@ -1,7 +1,7 @@
 import { SEARCH_QUERY, SEARCH_ERROR } from './types';
 import axios from 'axios';
 
-export const multiSearch = (keyword, history) => async dispatch => {
+export const multiSearch = keyword => async dispatch => {
   try {
     const response = await axios.get(
       `/search/multisearch/${encodeURI(keyword)}`
