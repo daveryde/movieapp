@@ -1,3 +1,3 @@
 module.export = {
-  apiKey: procecss.env.API_KEY
+  apiKey: process.env.API_KEY
 };
