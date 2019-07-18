@@ -4,6 +4,16 @@ const path = require('path');
 const app = express();
 
 app.use(express.json({ extended: false }));
+
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+
 app.use('/search', require('./routes/api/search'));
 app.use('/images', require('./routes/api/images'));
 
