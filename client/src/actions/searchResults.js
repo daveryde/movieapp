@@ -14,7 +14,7 @@ export const multiSearch = (keyword, history) => async dispatch => {
   } catch (err) {
     dispatch({
       type: SEARCH_ERROR,
-      payload: { msg: err.response.statusText, status: err.response.status }
+      payload: { msg: err.response.data, status: err.response.status }
     });
   }
 };
