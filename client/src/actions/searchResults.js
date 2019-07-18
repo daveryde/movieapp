@@ -3,18 +3,20 @@ import axios from 'axios';
 
 export const multiSearch = (keyword, history) => async dispatch => {
   try {
-    const res = await axios.get(`/search/multisearch/${encodeURI(keyword)}`);
+    const response = await axios.get(
+      `/search/multisearch/${encodeURI(keyword)}`
+    );
 
     dispatch({
       type: SEARCH_QUERY,
-      payload: { ...res.data, keyword }
+      payload: { ...response.data, keyword }
     });
 
     history.push('/searchView');
   } catch (err) {
     dispatch({
       type: SEARCH_ERROR,
-      payload: { msg: err.response.data, status: err.response.status }
+      payload: { msg: err }
     });
   }
 };
