@@ -11,8 +11,6 @@ export const multiSearch = (keyword, history) => async dispatch => {
       type: SEARCH_QUERY,
       payload: { ...response.data, keyword }
     });
-
-    history.push('/searchView');
   } catch (err) {
     dispatch({
       type: SEARCH_ERROR,
