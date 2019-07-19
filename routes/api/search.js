@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const keys = require('../../config/keys').apiKey;
+const keys = require('../../config/keys');
 const axios = require('axios');
 
 router.get('/', async (req, res) => {
   try {
     const result = await axios.get(
-      `https://api.themoviedb.org/3/movie/upcoming/?api_key=${keys}`
+      `https://api.themoviedb.org/3/movie/upcoming/?api_key=${keys.apiKey}`
     );
 
     const { results } = result.data;
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 router.get('/trending', async (req, res) => {
   try {
     const result = await axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${keys}`
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${keys.apiKey}`
     );
 
     const results = result.data;
@@ -37,7 +37,9 @@ router.get('/multisearch/:query', async (req, res) => {
   try {
     const URLformatted = encodeURI(req.params.query);
     const result = await axios.get(
-      `https://api.themoviedb.org/3/search/multi?api_key=${keys}&language=en-US&query=${URLformatted}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/multi?api_key=${
+        keys.apiKey
+      }&language=en-US&query=${URLformatted}&page=1&include_adult=false`
     );
 
     return res.json(result.data);
