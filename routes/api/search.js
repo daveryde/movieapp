@@ -1,12 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const keys = require('../../config/keys');
 const axios = require('axios');
+const path = require('path');
+require('dotenv').config({
+  path: path.resolve(__dirname, '../../config/.env')
+});
 
 router.get('/', async (req, res) => {
   try {
     const result = await axios.get(
-      `https://api.themoviedb.org/3/movie/upcoming/?api_key=${keys.apiKey}`
+      `https://api.themoviedb.org/3/movie/upcoming/?api_key=${
+        process.env.API_KEY
+      }`
     );
 
     const { results } = result.data;
@@ -21,7 +26,9 @@ router.get('/', async (req, res) => {
 router.get('/trending', async (req, res) => {
   try {
     const result = await axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${keys.apiKey}`
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${
+        process.env.API_KEY
+      }`
     );
 
     const results = result.data;
@@ -38,7 +45,7 @@ router.get('/multisearch/:query', async (req, res) => {
     const URLformatted = encodeURI(req.params.query);
     const result = await axios.get(
       `https://api.themoviedb.org/3/search/multi?api_key=${
-        keys.apiKey
+        process.env.API_KEY
       }&language=en-US&query=${URLformatted}&page=1&include_adult=false`
     );
 
