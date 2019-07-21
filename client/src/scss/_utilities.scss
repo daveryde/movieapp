@@ -9,81 +9,76 @@
 
     &-fluid {
       @include flex;
-      @include m-p;
       @include fluid;
-    }
 
-    &.justify {
-      &-center {
-        @include flex;
-        @include m-p;
-        @include a-center;
-        justify-content: center;
-      }
-      &-spaced {
-        @include flex;
-        @include m-p;
-        @include a-center;
-        justify-content: space-evenly;
-      }
-      &-between {
-        @include flex;
-        @include m-p;
-        @include a-center;
-        justify-content: space-between;
-      }
-    }
-
-    &.direction {
-      &-row {
-        @include flex;
-        @include m-p;
-        flex-direction: row;
-
-        &-nowrap {
+      &.justify {
+        &-center {
           @include flex;
-          @include m-p;
-          flex-flow: row nowrap;
+          @include a-center;
+          justify-content: center;
         }
-
-        &-wrap {
+        &-spaced {
           @include flex;
-          @include m-p;
-          flex-flow: row wrap;
+          @include a-center;
+          justify-content: space-evenly;
+        }
+        &-between {
+          @include flex;
+          @include a-center;
+          justify-content: space-between;
         }
       }
 
-      &-column {
-        @include flex;
-        @include m-p;
-        flex-direction: column;
-
-        &-nowrap {
+      &.direction {
+        &-row {
           @include flex;
           @include m-p;
-          flex-flow: row nowrap;
+          flex-direction: row;
+
+          &-nowrap {
+            @include flex;
+            @include m-p;
+            flex-flow: row nowrap;
+          }
+
+          &-wrap {
+            @include flex;
+            @include m-p;
+            flex-flow: row wrap;
+          }
         }
 
-        &-wrap {
+        &-column {
           @include flex;
           @include m-p;
-          flex-flow: row wrap;
+          flex-direction: column;
+
+          &-nowrap {
+            @include flex;
+            @include m-p;
+            flex-flow: row nowrap;
+          }
+
+          &-wrap {
+            @include flex;
+            @include m-p;
+            flex-flow: row wrap;
+          }
         }
       }
     }
   }
 
   &.landing {
-    min-width: 100vw;
-    height: 100vh;
+    @include fluid;
   }
 }
 
 .container {
-  @include m-p;
+  width: 95vw;
+  height: auto;
 
   &-fluid {
-    @include m-p;
     @include fluid;
   }
 }

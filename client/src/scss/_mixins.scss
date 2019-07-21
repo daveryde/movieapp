@@ -29,6 +29,10 @@
   height: 100vh;
 }
 
+@mixin ease-all {
+  transition: all 0.5s ease-in-out;
+}
+
 @mixin overlay {
   opacity: 0.5;
   transition: all 0.5 ease;

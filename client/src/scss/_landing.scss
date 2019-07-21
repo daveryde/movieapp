@@ -1,15 +1,18 @@
 // Landing
-img {
+.slider {
   width: 100vw;
-  background-position: cover;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  @include overlay;
+  height: 100vh;
 }
 
-.image-slider-title {
-  background: $background-color;
-  margin-left: 2rem;
-  color: white;
-  font-size: 3rem;
+h1 {
+  &.image-slider-title {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    background-color: none;
+    margin-left: 2rem;
+    color: white;
+    font-size: 4rem;
+    z-index: 1;
+  }
 }

@@ -1,22 +1,32 @@
 @import 'mixins';
 
-@media (max-width: 800px) {
-  // Utilities
-  .container {
-    max-width: 90vw;
+@media (max-width: 1100px) {
+  h1 {
+    &.image-slider-title {
+      font-size: 2.5rem;
+    }
   }
+}
 
+@media (max-width: 1050px) {
+  h1 {
+    &.image-slider-title {
+      top: 45%;
+    }
+  }
+}
+
+@media (max-width: 800px) {
   // Navigation Bar
 
   .navbar {
-    width: 88vw;
+    min-width: 70vw;
 
     .navbar-logo {
-      width: 15vw;
+      min-width: 35vw;
 
-      h1.branding {
-        margin-left: 2rem;
-        font-size: 1.6rem;
+      h1.navbar-branding {
+        font-size: 1.9rem;
         text-shadow: 1px 1px 2px $success-color, 0 0 1em $danger-color,
           0 0 0.2em $dark-color;
       }
@@ -47,21 +57,14 @@
         }
       }
     }
+  }
 
-    // Landing
-    .landing {
-      img {
-        width: 100vw;
-        max-height: 100vh;
-        background-position: cover;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-
-        .image-slider-title {
-          background: $background-color;
-          color: white;
-        }
-      }
+  // Landing
+  h1 {
+    &.image-slider-title {
+      top: 35%;
+      left: 5%;
+      font-size: 1.7rem;
     }
   }
 
@@ -89,13 +92,40 @@
 @media (max-width: 650px) {
   // Navbar
   .navbar {
-    width: 90vw;
+    min-width: 88vw;
+
+    .navbar-logo {
+      min-width: 40vw;
+    }
+
+    .navbar-searchbox {
+      input[type='text'] {
+        min-width: 25vw;
+      }
+
+      button[type='submit'] {
+        width: 10vw;
+
+        &:hover {
+          background: none;
+        }
+
+        i {
+          padding-top: 0.5rem;
+          transform: scale(1.4);
+        }
+      }
+    }
   }
 
   // Landing
-  .image-slider-title {
-    text-align: center;
-    font-size: 1.7rem;
+  h1 {
+    &.image-slider-title {
+      text-align: center;
+      font-size: 1.7rem;
+      top: 32%;
+      left: 5%;
+    }
   }
 
   // Movie Section
@@ -113,6 +143,62 @@
     img {
       width: 125px;
       height: 125px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  // Navigation Bar
+
+  .navbar {
+    min-width: 85vw;
+
+    .navbar-logo {
+      min-width: 40vw;
+
+      h1.navbar-branding {
+        padding-top: 0.3rem;
+        font-size: 1.5rem;
+        text-shadow: 1px 1px 2px $success-color, 0 0 1em $danger-color,
+          0 0 0.2em $dark-color;
+      }
+    }
+
+    .navbar-searchbox {
+      width: auto;
+      height: auto;
+
+      input[type='text'] {
+        width: 27vw;
+        height: 2vh;
+        font-size: 0.8rem;
+      }
+
+      button[type='submit'] {
+        width: 8vw;
+        height: auto;
+        margin: 0;
+        padding: 0;
+
+        &:hover {
+          background: none;
+        }
+
+        i {
+          padding-top: 0.5rem;
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+
+  // Landing
+  h1 {
+    &.image-slider-title {
+      text-align: center;
+      font-size: 1.4rem;
+      top: 25%;
+      left: 3%;
     }
   }
 }

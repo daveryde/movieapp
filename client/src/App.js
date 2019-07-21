@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Landing from './components/landing/Landing';
@@ -11,13 +11,13 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Fragment>
+        <div className='container-fluid'>
           <Navbar />
           <Switch>
             <Route exact path='/' component={Landing} />
             <Route exact path='/searchView' component={SearchView} />
           </Switch>
-        </Fragment>
+        </div>
       </Router>
     </Provider>
   );

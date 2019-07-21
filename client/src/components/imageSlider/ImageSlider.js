@@ -10,9 +10,18 @@ const ImageSlider = ({ imageUrl, title, autoSlide }) => {
   } else {
     autoSlide(true);
     return (
-      <div>
-        <img src={imageUrl} alt={imageUrl} />
+      <div className='direction-column-wrap'>
         <h1 className='image-slider-title'>{title}</h1>
+        <div
+          style={{
+            backgroundImage: `url(${imageUrl})`,
+            maxWidth: '100vw',
+            height: '100vh',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            opacity: '0.4'
+          }}
+        />
       </div>
     );
   }

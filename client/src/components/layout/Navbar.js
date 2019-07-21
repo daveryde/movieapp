@@ -23,11 +23,11 @@ const Navbar = ({ multiSearch, history }) => {
   };
 
   return (
-    <div className='container'>
-      <div className='flex-container justify-between bg-primary navbar'>
+    <div className='navbar-container'>
+      <div className='navbar bg-primary'>
         <div className='navbar-logo'>
           <Link to='/'>
-            <h1 className='branding'>MovieApp</h1>
+            <h1 className='navbar-branding'>MovieApp</h1>
           </Link>
         </div>
         <div className='navbar-searchbox'>
