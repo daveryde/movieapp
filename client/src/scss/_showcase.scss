@@ -1,23 +1,28 @@
 // Showcase movie Section
 
+.image-category-title {
+  margin: 2rem 2rem 2rem 4rem;
+  color: white;
+}
+
 .arrow-directional {
   width: 3rem;
   @include overlay;
+
+  &:hover {
+    @include set-background(lighten($background-color, 3%));
+  }
 }
 
 .card {
-  max-width: 20vw;
-  height: auto;
   margin: 1rem;
+  width: 14vw;
+  height: 30vh;
   border-radius: 10px;
+  @include ease-all;
+  @include overlay;
 
-  img {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .card-media {
-    width: 20vw;
-    @include overlay;
+  &:hover {
+    transform: scale(1.4);
   }
 }

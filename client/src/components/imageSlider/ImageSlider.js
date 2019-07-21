@@ -15,9 +15,10 @@ const ImageSlider = ({ imageUrl, title, autoSlide }) => {
         <div
           style={{
             backgroundImage: `url(${imageUrl})`,
-            maxWidth: '100vw',
-            height: '100vh',
-            backgroundSize: '100%',
+            width: '100vw',
+            minHeight: '100vh',
+            backgroundPosition: '40% 30%',
+            backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             opacity: '0.4'
           }}

@@ -9,11 +9,7 @@
 }
 
 @media (max-width: 1050px) {
-  h1 {
-    &.image-slider-title {
-      top: 45%;
-    }
-  }
+  // Small Laptop
 }
 
 @media (max-width: 800px) {
@@ -62,9 +58,7 @@
   // Landing
   h1 {
     &.image-slider-title {
-      top: 35%;
-      left: 5%;
-      font-size: 1.7rem;
+      top: 70%;
     }
   }
 
@@ -106,10 +100,6 @@
       button[type='submit'] {
         width: 10vw;
 
-        &:hover {
-          background: none;
-        }
-
         i {
           padding-top: 0.5rem;
           transform: scale(1.4);
@@ -121,10 +111,7 @@
   // Landing
   h1 {
     &.image-slider-title {
-      text-align: center;
-      font-size: 1.7rem;
-      top: 32%;
-      left: 5%;
+      font-size: 2rem;
     }
   }
 
@@ -196,9 +183,17 @@
   h1 {
     &.image-slider-title {
       text-align: center;
-      font-size: 1.4rem;
-      top: 25%;
-      left: 3%;
+    }
+  }
+
+  // Showcase
+
+  .card {
+    margin: 1rem -0.1rem 1rem -0.1rem;
+    min-width: 30vw;
+
+    &:hover {
+      transform: scale(2);
     }
   }
 }

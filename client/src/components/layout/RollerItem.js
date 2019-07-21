@@ -4,9 +4,16 @@ import { connect } from 'react-redux';
 
 const RollerItem = ({ imageUrl, title }) => {
   return (
-    <div className='card'>
-      <img src={imageUrl} alt={title} className='card-media' />
-    </div>
+    <div
+      id={title}
+      className='card'
+      style={{
+        backgroundImage: `url(${imageUrl})`,
+        backgroundPosition: 'center center',
+        backgroundSize: 'contain',
+        backgroundRepeat: 'no-repeat'
+      }}
+    />
   );
 };
 

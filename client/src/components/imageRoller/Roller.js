@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Arrow from '../imageRoller/Arrow';
 import ImageRoller from './ImageRoller';
 
-const Roller = ({ movies: { results }, config: { url, backdrop_sizes } }) => {
+const Roller = ({ movies: { results }, config: { url, poster_sizes } }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImagePath] = useState([]);
   const [titles, setImageTitle] = useState([]);
@@ -11,7 +11,7 @@ const Roller = ({ movies: { results }, config: { url, backdrop_sizes } }) => {
   useEffect(() => {
     if (results !== undefined) {
       const loadedImages = results.map(item => {
-        return `${url}/${backdrop_sizes[3]}/${item.backdrop_path}`;
+        return `${url}/${poster_sizes[3]}/${item.poster_path}`;
       });
 
       const loadedTitles = results.map(item => {
@@ -21,7 +21,7 @@ const Roller = ({ movies: { results }, config: { url, backdrop_sizes } }) => {
       setImagePath(loadedImages);
       setImageTitle(loadedTitles);
     }
-  }, [results, backdrop_sizes, url]);
+  }, [results, poster_sizes, url]);
 
   const prevSlide = () => {
     const lastIndex = images.length - 1;
@@ -39,18 +39,27 @@ const Roller = ({ movies: { results }, config: { url, backdrop_sizes } }) => {
     setCurrentImageIndex(index);
   };
 
-  let firstFourImages = images.slice(currentImageIndex, currentImageIndex + 4);
+  let mediaWidth = window.outerWidth;
+  let firstImages;
 
-  if (firstFourImages.length < 4) {
-    firstFourImages = firstFourImages.concat(
-      images.slice(0, 4 - firstFourImages.length)
-    );
+  if (mediaWidth < 450) {
+    firstImages = images.slice(currentImageIndex, currentImageIndex + 3);
+
+    if (firstImages.length < 3) {
+      firstImages = firstImages.concat(images.slice(0, 3 - firstImages.length));
+    }
+  } else {
+    firstImages = images.slice(currentImageIndex, currentImageIndex + 6);
+
+    if (firstImages.length < 6) {
+      firstImages = firstImages.concat(images.slice(0, 6 - firstImages.length));
+    }
   }
 
   return (
-    <div className='flex-container'>
+    <div className='flex-container' style={{ margin: '-0.5rem' }}>
       <Arrow direction={'left'} clickFunction={prevSlide} />
-      {firstFourImages.map((image, index) => {
+      {firstImages.map((image, index) => {
         return (
           <ImageRoller
             key={index}

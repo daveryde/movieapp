@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -7,10 +7,10 @@ import Trending from './Trending';
 
 const Main = ({ config, upcoming, trending }) => {
   return (
-    <Fragment>
+    <div className='container-fluid'>
       <Upcoming movies={upcoming} config={config} />
       <Trending movies={trending} config={config} />
-    </Fragment>
+    </div>
   );
 };
 

@@ -7,13 +7,13 @@ const MovieItem = ({
   config: { url, backdrop_sizes }
 }) => {
   return (
-    <div className='card'>
-      <img
-        src={`${url}/${backdrop_sizes[0]}/${poster_path}`}
-        alt={title}
-        className='card-media'
-      />
-    </div>
+    <div
+      id={title}
+      className='card'
+      style={{
+        backgroundImage: `url(${url}/${backdrop_sizes[0]}/${poster_path})`
+      }}
+    />
   );
 };
 

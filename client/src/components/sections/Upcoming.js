@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Roller from '../imageRoller/Roller';
 
 const Upcoming = ({ config, movies }) => {
   return (
-    <div>
+    <Fragment>
       <h1 className='image-category-title'>Upcoming Movies</h1>
       <Roller movies={movies} config={config} />
-    </div>
+    </Fragment>
   );
 };
 
