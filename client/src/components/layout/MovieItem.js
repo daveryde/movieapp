@@ -1,19 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 const MovieItem = ({
   item: { poster_path, title },
   config: { url, backdrop_sizes }
 }) => {
   return (
-    <div
-      id={title}
-      className='card'
-      style={{
-        backgroundImage: `url(${url}/${backdrop_sizes[0]}/${poster_path})`
-      }}
-    />
+    <div className='search-item'>
+      <div
+        id={title}
+        style={{
+          width: '100%',
+          height: '100%',
+          backgroundImage: `url(${url}/${backdrop_sizes[0]}/${poster_path})`,
+          backgroundPosition: 'center center',
+          backgroundSize: '100% 100%',
+          backgroundRepeat: 'no-repeat'
+        }}
+      />
+    </div>
   );
 };
 
@@ -22,11 +27,4 @@ MovieItem.propTypes = {
   config: PropTypes.object.isRequired
 };
 
-const mapStateToProps = state => ({
-  config: state.imgConfig
-});
-
-export default connect(
-  mapStateToProps,
-  {}
-)(MovieItem);
+export default MovieItem;

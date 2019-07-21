@@ -26,3 +26,23 @@
     transform: scale(1.4);
   }
 }
+
+.search-results-container {
+  width: 100vw;
+  height: 100vh;
+  margin-top: 5rem;
+  padding: 1.5rem;
+
+  .search-results {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+
+  .search-item {
+    margin: 0.5rem;
+    padding: 0.2rem;
+    width: 20vw;
+    height: 33vh;
+  }
+}
