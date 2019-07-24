@@ -1,8 +1,9 @@
-import { SEARCH_QUERY, SEARCH_ERROR } from '../actions/types';
+import { SEARCH_MOVIEID, SEARCH_QUERY, SEARCH_ERROR } from '../actions/types';
 
 const initialState = {
   search_history: [],
   results: [],
+  item_details: [],
   loading: true,
   errors: {}
 };
@@ -11,6 +12,12 @@ export default function(state = initialState, action) {
   const { payload, type } = action;
 
   switch (type) {
+    case SEARCH_MOVIEID:
+      return {
+        ...state,
+        item_details: payload,
+        loading: false
+      };
     case SEARCH_QUERY:
       return {
         ...state,

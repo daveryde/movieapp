@@ -24,6 +24,7 @@
 
   &:hover {
     transform: scale(1.4);
+    cursor: pointer;
   }
 }
 
@@ -43,6 +44,10 @@
     margin: 0.5rem;
     padding: 0.2rem;
     width: 20vw;
-    height: 33vh;
+    height: 45vh;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }

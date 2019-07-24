@@ -1,14 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getMovieById } from '../../actions/searchResults';
 
 const MovieItem = ({
-  item: { poster_path, title },
-  config: { url, backdrop_sizes }
+  item: { poster_path },
+  id,
+  config: { url, backdrop_sizes },
+  getMovieById,
+  history
 }) => {
   return (
     <div className='search-item'>
       <div
-        id={title}
+        onClick={async () => {
+          await getMovieById(id);
+          history.push('/movieDetail');
+        }}
+        id={id}
         style={{
           width: '100%',
           height: '100%',
@@ -27,4 +37,7 @@ MovieItem.propTypes = {
   config: PropTypes.object.isRequired
 };
 
-export default MovieItem;
+export default connect(
+  null,
+  { getMovieById }
+)(withRouter(MovieItem));

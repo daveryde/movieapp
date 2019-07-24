@@ -332,13 +332,13 @@ h1.image-slider-title {
 
 .arrow-directional {
   width: 3rem;
-  opacity: 0.5;
+  opacity: 0.4;
   -webkit-transition: all 0.5 ease;
   transition: all 0.5 ease;
 }
 
 .arrow-directional:hover {
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .arrow-directional:hover {
@@ -353,18 +353,19 @@ h1.image-slider-title {
   border-radius: 10px;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
-  opacity: 0.5;
+  opacity: 0.4;
   -webkit-transition: all 0.5 ease;
   transition: all 0.5 ease;
 }
 
 .card:hover {
-  opacity: 1;
+  opacity: 0.7;
 }
 
 .card:hover {
   -webkit-transform: scale(1.4);
           transform: scale(1.4);
+  cursor: pointer;
 }
 
 .search-results-container {
@@ -391,7 +392,62 @@ h1.image-slider-title {
   margin: 0.5rem;
   padding: 0.2rem;
   width: 20vw;
-  height: 33vh;
+  height: 45vh;
+}
+
+.search-results-container .search-item:hover {
+  cursor: pointer;
+}
+
+.movie-detail-banner {
+  position: relative;
+  top: 0;
+  left: 0;
+  opacity: 0.4;
+  -webkit-transition: all 0.5 ease;
+  transition: all 0.5 ease;
+}
+
+.movie-detail-banner:hover {
+  opacity: 0.7;
+}
+
+.movie-thumbnail-poster {
+  position: absolute;
+  top: 58%;
+  left: 8%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.movie-thumbnail-poster p {
+  color: yellow;
+}
+
+.movie-poster-info {
+  position: absolute;
+  top: 65%;
+  left: 28%;
+  color: white;
+}
+
+.movie-poster-info h1 {
+  font-size: 3rem;
+}
+
+.movie-poster-info p {
+  margin-top: 0.5rem;
+}
+
+.movie-poster-info p i {
+  margin-right: 0.2rem;
 }
 
 @media (max-width: 1100px) {

@@ -2,10 +2,17 @@ import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getConfig } from '../../actions/imgConfig';
+import { getMovieById } from '../../actions/searchResults';
 import Loader from '../layout/Loader';
 import MovieItem from '../layout/MovieItem';
 
-const SearchView = ({ searchResults, getConfig, config }) => {
+const SearchView = ({
+  getConfig,
+  getMovieById,
+  config,
+  searchResults,
+  history
+}) => {
   const [result, setResult] = useState([]);
 
   useEffect(() => {
@@ -34,8 +41,8 @@ const SearchView = ({ searchResults, getConfig, config }) => {
               : 'Results for: '}
           </h1>
           <div className='search-results'>
-            {result.map(item => (
-              <MovieItem item={item} key={item.id} config={config} />
+            {result.map((item, index) => (
+              <MovieItem id={item.id} key={index} item={item} config={config} />
             ))}
           </div>
         </div>
@@ -56,5 +63,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getConfig }
+  { getConfig, getMovieById }
 )(SearchView);

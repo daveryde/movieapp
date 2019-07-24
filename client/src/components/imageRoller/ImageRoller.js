@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RollerItem from '../layout/RollerItem';
 
-const ImageRoller = ({ imageUrl, title }) => {
-  if (!imageUrl) {
+const ImageRoller = ({ image, url, size, title }) => {
+  if (!image) {
     return (
       <div>
         <p>LOADING ... </p>
       </div>
     );
   } else {
-    return <RollerItem imageUrl={imageUrl} title={title} />;
+    return <RollerItem image={image} url={url} size={size} title={title} />;
   }
 };
 

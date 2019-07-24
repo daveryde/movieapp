@@ -1,11 +1,25 @@
-import { SEARCH_QUERY, SEARCH_ERROR } from './types';
+import { SEARCH_MOVIEID, SEARCH_QUERY, SEARCH_ERROR } from './types';
 import axios from 'axios';
+
+export const getMovieById = movieId => async dispatch => {
+  try {
+    const response = await axios.get(`/search/movie/${movieId}`);
+
+    dispatch({
+      type: SEARCH_MOVIEID,
+      payload: response.data
+    });
+  } catch (err) {
+    dispatch({
+      type: SEARCH_ERROR,
+      payload: { msg: err }
+    });
+  }
+};
 
 export const multiSearch = keyword => async dispatch => {
   try {
-    const response = await axios.get(
-      `/search/multisearch/${encodeURI(keyword)}`
-    );
+    const response = await axios.get(`/search/multisearch/${keyword}`);
 
     dispatch({
       type: SEARCH_QUERY,

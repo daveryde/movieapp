@@ -40,6 +40,22 @@ router.get('/trending', async (req, res) => {
   }
 });
 
+router.get('/movie/:query', async (req, res) => {
+  try {
+    const URLformatted = encodeURI(req.params.query);
+    const result = await axios.get(
+      `https://api.themoviedb.org/3/movie/${URLformatted}?api_key=${
+        process.env.API_KEY
+      }`
+    );
+
+    return res.json(result.data);
+  } catch (err) {
+    console.error(err);
+    return res.json({ msg: err });
+  }
+});
+
 router.get('/multisearch/:query', async (req, res) => {
   try {
     const URLformatted = encodeURI(req.params.query);

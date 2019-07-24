@@ -10,8 +10,10 @@ const Roller = ({ movies: { results }, config: { url, poster_sizes } }) => {
 
   useEffect(() => {
     if (results !== undefined) {
+      // ${url}/${poster_sizes[3]}/${item.poster_path
+
       const loadedImages = results.map(item => {
-        return `${url}/${poster_sizes[3]}/${item.poster_path}`;
+        return item;
       });
 
       const loadedTitles = results.map(item => {
@@ -63,7 +65,9 @@ const Roller = ({ movies: { results }, config: { url, poster_sizes } }) => {
         return (
           <ImageRoller
             key={index}
-            imageUrl={image}
+            image={image}
+            url={url}
+            size={poster_sizes}
             title={titles[currentImageIndex]}
           />
         );
