@@ -72,4 +72,20 @@ router.get('/multisearch/:query', async (req, res) => {
   }
 });
 
+router.get('/movie/:query/trailers', async (req, res) => {
+  try {
+    const URLformatted = encodeURI(req.params.query);
+    const result = await axios.get(
+      `https://api.themoviedb.org/3/movie/${URLformatted}/videos?api_key=${
+        process.env.API_KEY
+      }&language=en-US`
+    );
+
+    return res.json(result.data);
+  } catch (err) {
+    console.error(err);
+    return res.json({ msg: err });
+  }
+});
+
 module.exports = router;
