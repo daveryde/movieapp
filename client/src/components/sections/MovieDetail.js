@@ -136,7 +136,7 @@ const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
           <div className='flex-container trailer-container'>
             {trailers !== undefined ? (
               trailers.map((item, index) => (
-                <div key={item.id}>
+                <div className='trailer-item-container' key={item.id}>
                   <p>{item.name}</p>
                   <iframe
                     className='trailer-frame'

@@ -7,8 +7,9 @@
 
 .movie-thumbnail-poster {
   position: absolute;
-  top: 58%;
+  top: 40%;
   left: 8%;
+  min-height: 60vh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -20,8 +21,8 @@
 
 .movie-poster-info {
   position: absolute;
-  top: 65%;
-  left: 28%;
+  top: 50%;
+  left: 27%;
   color: white;
 
   h1 {
@@ -84,7 +85,7 @@
 .trailer-container {
   margin: 0 auto;
   width: 90vw;
-  height: 50vh;
+  height: 80vh;
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
