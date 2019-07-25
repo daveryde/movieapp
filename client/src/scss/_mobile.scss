@@ -337,8 +337,8 @@
   // Showcase
 
   .card {
-    margin: 1rem -0.1rem 1rem -0.1rem;
-    min-width: 30vw;
+    margin: 1rem -1.9rem;
+    max-width: 50vw;
 
     &:hover {
       transform: scale(2);

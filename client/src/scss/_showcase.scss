@@ -6,7 +6,15 @@
 }
 
 .arrow-directional {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 3rem;
+  max-height: 25vh;
+  margin-top: 4rem;
+  font-size: 6rem;
+  color: white;
+  transform: scaleY(2);
   @include overlay;
 
   &:hover {
