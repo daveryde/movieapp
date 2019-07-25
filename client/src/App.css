@@ -348,7 +348,7 @@ h1.image-slider-title {
 
 .card {
   margin: 1rem;
-  width: 14vw;
+  width: 13vw;
   height: 30vh;
   border-radius: 10px;
   -webkit-transition: all 0.5s ease-in-out;
@@ -391,8 +391,8 @@ h1.image-slider-title {
 .search-results-container .search-item {
   margin: 0.5rem;
   padding: 0.2rem;
-  width: 20vw;
-  height: 45vh;
+  width: 225px;
+  height: 50vh;
 }
 
 .search-results-container .search-item:hover {
@@ -427,7 +427,7 @@ h1.image-slider-title {
           align-items: flex-end;
 }
 
-.movie-thumbnail-poster p {
+.movie-thumbnail-poster .movie-poster-date {
   color: yellow;
 }
 
@@ -448,6 +448,91 @@ h1.image-slider-title {
 
 .movie-poster-info p i {
   margin-right: 0.2rem;
+}
+
+.summary-container {
+  margin-top: 7rem;
+  width: 100vw;
+  height: 60vh;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.summary-container .summary-section {
+  margin: 0 2rem;
+  color: white;
+}
+
+.summary-container .summary-section .summary-title {
+  margin: 0;
+  padding: 0;
+  font-size: 2.5rem;
+}
+
+.summary-container .summary-section .summary-overview {
+  margin-top: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.summary-container .summary-section .summary-overview .summary-table-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50vw;
+  height: 25vh;
+  margin: 2rem auto;
+}
+
+.summary-container .summary-section .summary-overview .summary-table-detail table {
+  border: 1px solid white;
+}
+
+.summary-container .summary-section .summary-overview .summary-table-detail td {
+  margin: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.trailer-container {
+  margin: 0 auto;
+  width: 90vw;
+  height: 50vh;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.trailer-container p {
+  margin: 1rem;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.trailer-container .trailer-frame {
+  max-width: 25vw;
+  min-height: 100%;
+  height: 100%;
+  border: none;
 }
 
 @media (max-width: 1100px) {

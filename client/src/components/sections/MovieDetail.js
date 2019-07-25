@@ -1,124 +1,45 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { getMovieTrailers } from '../../actions/searchResults';
 import Loader from '../layout/Loader';
+import NumberFormat from 'react-number-format';
 
-const MovieDetail = ({ search, config }) => {
+const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
   const [movieItem, setMovieItem] = useState({});
-  // adult: false,
-  // backdrop_path: '',
-  // belongs_to_collection: null,
-  // budget: 0,
-  // genres: [],
-  // homepage: '',
-  // id: 0,
-  // imdb_id: '',
-  // orginal_language: '',
-  // original_title: '',
-  // overview: '',
-  // popularity: 0,
-  // poster_path: '',
-  // production_companies: [],
-  // production_countries: [],
-  // release_date: '',
-  // revenue: 0,
-  // runtime: 0,
-  // spoken_languages: [],
-  // status: '',
-  // tagline: '',
-  // title: '',
-  // video: false,
-  // vote_average: 0,
-  // vote_count: 0
 
   useEffect(() => {
     if (search) {
       setMovieItem(search);
+      getMovieTrailers(search.id);
     }
-  }, [search]);
-
-  // const {
-  //   adult,
-  //   backdrop_path,
-  //   belongs_to_collection,
-  //   budget,
-  //   genres,
-  //   homepage,
-  //   id,
-  //   imdb_id,
-  //   orginal_language,
-  //   original_title,
-  //   overview,
-  //   popularity,
-  //   poster_path,
-  //   production_companies,
-  //   production_countries,
-  //   release_date,
-  //   revenue,
-  //   runtime,
-  //   spoken_languages,
-  //   status,
-  //   tagline,
-  //   title,
-  //   video,
-  //   vote_average,
-  //   vote_count
-  // } = search.item_details;
-
-  // setMovieItem({
-  //   adult,
-  //   backdrop_path,
-  //   belongs_to_collection,
-  //   budget,
-  //   genres,
-  //   homepage,
-  //   id,
-  //   imdb_id,
-  //   orginal_language,
-  //   original_title,
-  //   overview,
-  //   popularity,
-  //   poster_path,
-  //   production_companies,
-  //   production_countries,
-  //   release_date,
-  //   revenue,
-  //   runtime,
-  //   spoken_languages,
-  //   status,
-  //   tagline,
-  //   title,
-  //   video,
-  //   vote_average,
-  //   vote_count
-  // });
-
+  }, [search, getMovieTrailers]);
   const {
-    adult,
+    // adult,
     backdrop_path,
-    belongs_to_collection,
+    // belongs_to_collection,
     budget,
-    genres,
-    homepage,
-    id,
-    imdb_id,
-    orginal_language,
+    // genres,
+    // homepage,
+    // id,
+    // imdb_id,
+    // orginal_language,
     original_title,
     overview,
-    popularity,
+    // popularity,
     poster_path,
-    production_companies,
-    production_countries,
+    // production_companies,
+    // production_countries,
     release_date,
     revenue,
     runtime,
-    spoken_languages,
+    // spoken_languages,
     status,
-    tagline,
-    title,
-    video,
-    vote_average,
-    vote_count
+    // tagline,
+    // title,
+    // video,
+    vote_average
+    // vote_count
   } = movieItem;
 
   const rating = Math.ceil((vote_average * 5) / 10);
@@ -126,7 +47,7 @@ const MovieDetail = ({ search, config }) => {
   let stars = [];
 
   for (let i = 0; i < rating; i++) {
-    stars.push(<i key={i} class='fas fa-star' />);
+    stars.push(<i key={i} className='fas fa-star' />);
   }
 
   return (
@@ -139,6 +60,7 @@ const MovieDetail = ({ search, config }) => {
               backgroundImage: `url(${config.url}/${
                 config.backdrop_sizes[3]
               }/${backdrop_path})`,
+              backgroundRepeat: 'no-repeat',
               backgroundSize: '100%',
               backgroundPosition: 'cover',
               width: '100vw',
@@ -158,12 +80,76 @@ const MovieDetail = ({ search, config }) => {
               height: '40vh'
             }}
           >
-            <p>{release_date}</p>
+            <p className='movie-poster-date'>{release_date}</p>
           </div>
 
           <div className='movie-poster-info'>
             <h1>{original_title}</h1>
             <p>{stars.map(item => item)}</p>
+          </div>
+
+          <div className='flex-container summary-container'>
+            <div className='summary-section'>
+              <div className='summary-title'>
+                <h2>Summary</h2>
+              </div>
+              <div className='summary-overview'>
+                <p>{overview}</p>
+                <div className='summary-table-detail'>
+                  <table>
+                    <thead>
+                      <tr>
+                        <td>Budget</td>
+                        <td>Revenue</td>
+                        <td>Runtime</td>
+                        <td>Status</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <NumberFormat
+                            value={budget}
+                            displayType={'text'}
+                            thousandSeparator={true}
+                            prefix={'$'}
+                          />
+                        </td>
+                        <td>
+                          <NumberFormat
+                            value={revenue}
+                            displayType={'text'}
+                            thousandSeparator={true}
+                            prefix={'$'}
+                          />
+                        </td>
+                        <td>{runtime} minutes</td>
+                        <td>{status}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className='flex-container trailer-container'>
+            {trailers !== undefined ? (
+              trailers.map((item, index) => (
+                <div key={item.id}>
+                  <p>{item.name}</p>
+                  <iframe
+                    className='trailer-frame'
+                    title={index}
+                    width='425'
+                    height='300'
+                    src={`https://www.youtube.com/embed/${item.key}`}
+                  />
+                </div>
+              ))
+            ) : (
+              <p>Nothing to see here</p>
+            )}
           </div>
           {/* <span style={{ font: 'white' }}>{original_title}</span>
           <p>{adult}</p>
@@ -200,16 +186,18 @@ const MovieDetail = ({ search, config }) => {
 };
 
 MovieDetail.propTypes = {
-  search: PropTypes.array.isRequired,
-  config: PropTypes.object.isRequired
+  search: PropTypes.object.isRequired,
+  config: PropTypes.object.isRequired,
+  trailers: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
   search: state.searchResults.item_details,
-  config: state.imgConfig
+  config: state.imgConfig,
+  trailers: state.searchResults.movie_trailers
 });
 
 export default connect(
   mapStateToProps,
-  {}
+  { getMovieTrailers }
 )(MovieDetail);

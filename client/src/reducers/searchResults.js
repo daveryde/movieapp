@@ -1,9 +1,15 @@
-import { SEARCH_MOVIEID, SEARCH_QUERY, SEARCH_ERROR } from '../actions/types';
+import {
+  SEARCH_MOVIEID,
+  SEARCH_TRAILERS,
+  SEARCH_QUERY,
+  SEARCH_ERROR
+} from '../actions/types';
 
 const initialState = {
   search_history: [],
   results: [],
-  item_details: [],
+  item_details: {},
+  movie_trailers: [],
   loading: true,
   errors: {}
 };
@@ -16,6 +22,12 @@ export default function(state = initialState, action) {
       return {
         ...state,
         item_details: payload,
+        loading: false
+      };
+    case SEARCH_TRAILERS:
+      return {
+        ...state,
+        movie_trailers: payload.results,
         loading: false
       };
     case SEARCH_QUERY:

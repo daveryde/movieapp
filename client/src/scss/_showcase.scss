@@ -16,7 +16,7 @@
 
 .card {
   margin: 1rem;
-  width: 14vw;
+  width: 13vw;
   height: 30vh;
   border-radius: 10px;
   @include ease-all;
@@ -43,8 +43,8 @@
   .search-item {
     margin: 0.5rem;
     padding: 0.2rem;
-    width: 20vw;
-    height: 45vh;
+    width: 225px;
+    height: 50vh;
 
     &:hover {
       cursor: pointer;

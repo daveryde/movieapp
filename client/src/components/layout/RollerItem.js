@@ -17,15 +17,19 @@ const RollerItem = ({ url, image, size, getMovieById, history }) => {
         backgroundImage: `url(${url}/${size[3]}/${image.poster_path})`,
         backgroundPosition: 'center center',
         backgroundSize: 'contain',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        width: '184px',
+        height: '40vh'
       }}
     />
   );
 };
 
 RollerItem.propTypes = {
-  imageUrl: PropTypes.string.isRequired,
-  title: PropTypes.string
+  url: PropTypes.string.isRequired,
+  image: PropTypes.object.isRequired,
+  size: PropTypes.array.isRequired,
+  getMovieById: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
