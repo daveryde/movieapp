@@ -59,7 +59,10 @@ const Roller = ({ movies: { results }, config: { url, poster_sizes } }) => {
   }
 
   return (
-    <div className='flex-container' style={{ margin: '-0.5rem' }}>
+    <div
+      className='flex-container roller-container'
+      style={{ margin: '-0.5rem' }}
+    >
       <Arrow direction={'left'} clickFunction={prevSlide} />
       {firstImages.map((image, index) => {
         return (

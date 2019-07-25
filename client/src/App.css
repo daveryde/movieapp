@@ -377,7 +377,13 @@ h1.image-slider-title {
   color: #fff;
 }
 
-.card {
+.roller-container {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.roller-container .card {
   margin: 1rem;
   width: 13vw;
   height: 30vh;
@@ -389,11 +395,11 @@ h1.image-slider-title {
   transition: all 0.5 ease;
 }
 
-.card:hover {
+.roller-container .card:hover {
   opacity: 0.7;
 }
 
-.card:hover {
+.roller-container .card:hover {
   -webkit-transform: scale(1.4);
           transform: scale(1.4);
   cursor: pointer;
@@ -447,7 +453,7 @@ h1.image-slider-title {
   position: absolute;
   top: 40%;
   left: 8%;
-  min-height: 60vh;
+  min-height: 47vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -690,7 +696,7 @@ h1.image-slider-title {
     width: 145px;
     height: 145px;
   }
-  .search-results-container .search-item {
+  .search-item {
     width: 25vw;
   }
   .movie-thumbnail-poster {
@@ -780,7 +786,7 @@ h1.image-slider-title {
     width: 125px;
     height: 125px;
   }
-  .search-results-container .search-item {
+  .search-item {
     width: 35vw;
   }
 }
@@ -810,7 +816,7 @@ h1.image-slider-title {
   }
   .navbar-container .navbar .navbar-searchbox input[type='text'] {
     min-width: 32vw;
-    min-height: 5vh;
+    max-height: 7vh;
     font-size: 0.8rem;
   }
   .navbar-container .navbar .navbar-searchbox button[type='submit'] {
@@ -827,18 +833,25 @@ h1.image-slider-title {
   h1.image-slider-title {
     text-align: center;
   }
+  .image-category-title {
+    margin: 2rem auto;
+    text-align: center;
+  }
   .card {
-    margin: 1rem -1.9rem;
-    max-width: 50vw;
+    width: 25vw;
+    max-width: 30vw;
   }
   .card:hover {
     -webkit-transform: scale(2);
             transform: scale(2);
   }
+  .movie-detail-banner {
+    max-height: 65vh;
+  }
   .movie-thumbnail-poster {
     top: 25%;
     max-width: 30vw;
-    min-height: 50vh;
+    min-height: 30vh;
   }
   .movie-poster-info {
     top: 24%;
@@ -848,9 +861,9 @@ h1.image-slider-title {
     font-size: 1.6rem;
   }
   .summary-container {
-    margin-top: -4rem;
+    margin-top: 0rem;
     margin-bottom: 1rem;
-    height: 80vh;
+    height: 60vh;
   }
   .summary-container .summary-section .summary-overview .summary-table-detail {
     display: none;
@@ -892,7 +905,12 @@ h1.image-slider-title {
 }
 
 @media (max-width: 500px) and (orientation: landscape) {
-  .card {
-    min-width: 45vw;
+  .roller-container {
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .roller-container .card {
+    width: 25vw;
   }
 }

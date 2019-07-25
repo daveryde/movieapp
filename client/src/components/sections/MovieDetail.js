@@ -64,7 +64,7 @@ const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
               backgroundSize: '100%',
               backgroundPosition: 'cover',
               width: '100vw',
-              height: '85vh'
+              height: '90vh'
             }}
           />
           <div

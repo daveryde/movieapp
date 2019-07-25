@@ -153,16 +153,8 @@
     }
   }
 
-  // Search Results
-  .search-results-container {
-    // Search container
-    .search-results {
-      // Search results
-    }
-
-    .search-item {
-      width: 25vw;
-    }
+  .search-item {
+    width: 25vw;
   }
 
   // Item Detail
@@ -263,16 +255,8 @@
     }
   }
 
-  // Search Results
-  .search-results-container {
-    // Search container
-    .search-results {
-      // Search results
-    }
-
-    .search-item {
-      width: 35vw;
-    }
+  .search-item {
+    width: 35vw;
   }
 }
 
@@ -306,7 +290,7 @@
 
         input[type='text'] {
           min-width: 32vw;
-          min-height: 5vh;
+          max-height: 7vh;
           font-size: 0.8rem;
         }
 
@@ -336,9 +320,14 @@
 
   // Showcase
 
+  .image-category-title {
+    margin: 2rem auto;
+    text-align: center;
+  }
+
   .card {
-    margin: 1rem -1.9rem;
-    max-width: 50vw;
+    width: 25vw;
+    max-width: 30vw;
 
     &:hover {
       transform: scale(2);
@@ -346,10 +335,14 @@
   }
 
   // Item Detail
+  .movie-detail-banner {
+    max-height: 65vh;
+  }
+
   .movie-thumbnail-poster {
     top: 25%;
     max-width: 30vw;
-    min-height: 50vh;
+    min-height: 30vh;
   }
 
   .movie-poster-info {
@@ -362,9 +355,9 @@
   }
 
   .summary-container {
-    margin-top: -4rem;
+    margin-top: 0rem;
     margin-bottom: 1rem;
-    height: 80vh;
+    height: 60vh;
     .summary-section {
       .summary-overview {
         .summary-table-detail {
@@ -403,7 +396,10 @@
 }
 
 @media (max-width: 500px) and (orientation: landscape) {
-  .card {
-    min-width: 45vw;
+  .roller-container {
+    justify-content: space-evenly;
+    .card {
+      width: 25vw;
+    }
   }
 }

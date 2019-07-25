@@ -22,17 +22,21 @@
   }
 }
 
-.card {
-  margin: 1rem;
-  width: 13vw;
-  height: 30vh;
-  border-radius: 10px;
-  @include ease-all;
-  @include overlay;
+.roller-container {
+  justify-content: center;
 
-  &:hover {
-    transform: scale(1.4);
-    cursor: pointer;
+  .card {
+    margin: 1rem;
+    width: 13vw;
+    height: 30vh;
+    border-radius: 10px;
+    @include ease-all;
+    @include overlay;
+
+    &:hover {
+      transform: scale(1.4);
+      cursor: pointer;
+    }
   }
 }
 
