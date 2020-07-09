@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Carousel from '../imageSlider/Carousel';
 
 const Showcase = ({ upcoming, config }) => {

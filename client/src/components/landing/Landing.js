@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -17,10 +17,10 @@ const Landing = ({ getConfig, getCurrent, getTrending, config, upcoming }) => {
   }, [getConfig, getCurrent, getTrending]);
 
   return (
-    <Fragment>
+    <>
       <Showcase config={config} upcoming={upcoming} />
       <Main />
-    </Fragment>
+    </>
   );
 };
 

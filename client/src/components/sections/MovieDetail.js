@@ -1,19 +1,27 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { getMovieTrailers } from '../../actions/searchResults';
-import Loader from '../layout/Loader';
 import NumberFormat from 'react-number-format';
+
+import { connect } from 'react-redux';
+
+import { getMovieTrailers } from '../../actions/searchResults';
+
+import Loader from '../layout/Loader';
 
 const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
   const [movieItem, setMovieItem] = useState({});
 
   useEffect(() => {
+    if (window) {
+      window.scrollTo(0, 0);
+    }
+
     if (search) {
       setMovieItem(search);
       getMovieTrailers(search.id);
     }
   }, [search, getMovieTrailers]);
+
   const {
     // adult,
     backdrop_path,
@@ -51,7 +59,7 @@ const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
   }
 
   return (
-    <Fragment>
+    <>
       {!search.loading ? (
         <div className='container-fluid'>
           <div
@@ -59,7 +67,7 @@ const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
             style={{
               backgroundImage: `url(${config.url}/${
                 config.backdrop_sizes[3]
-              }/${backdrop_path})`,
+                }/${backdrop_path})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: '100%',
               backgroundPosition: 'cover',
@@ -72,7 +80,7 @@ const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
             style={{
               backgroundImage: `url(${config.url}/${
                 config.poster_sizes[3]
-              }/${poster_path})`,
+                }/${poster_path})`,
               backgroundRepeat: 'no-repeat',
               backgroundSize: '100%',
               backgroundPosition: 'cover',
@@ -148,8 +156,8 @@ const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
                 </div>
               ))
             ) : (
-              <p>Nothing to see here</p>
-            )}
+                <p>Nothing to see here</p>
+              )}
           </div>
           {/* <span style={{ font: 'white' }}>{original_title}</span>
           <p>{adult}</p>
@@ -179,9 +187,9 @@ const MovieDetail = ({ search, config, getMovieTrailers, trailers }) => {
           <p>{vote_count}</p> */}
         </div>
       ) : (
-        <Loader />
-      )}
-    </Fragment>
+          <Loader />
+        )}
+    </>
   );
 };
 

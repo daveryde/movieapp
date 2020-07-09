@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+
 import { withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+
+import { connect } from 'react-redux';
+
 import { multiSearch } from '../../actions/searchResults';
 
 const Navbar = ({ multiSearch, history }) => {

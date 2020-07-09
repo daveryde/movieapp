@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
 import { getCurrent } from '../../actions/upcomingMovies';
 import { getConfig } from '../../actions/imgConfig';
+
 import MovieItem from './MovieItem';
 
 const Main = ({ getCurrent, getConfig, movies, config }) => {

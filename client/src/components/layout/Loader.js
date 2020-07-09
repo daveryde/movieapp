@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import spinner from './spinner.gif';
 
 export default () => {
   return (
-    <Fragment>
+    <>
       <img src={spinner} alt='Loading' />;
-    </Fragment>
+    </>
   );
 };
